@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,66 +6,51 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 antialiased min-h-screen selection:bg-brand-100 selection:text-brand-900;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-[#F8FAFC] text-[#0F172A] antialiased min-h-screen selection:bg-[#2563EB]/15 selection:text-[#2563EB];
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 transparent;
+    scrollbar-color: #CBD5E1 transparent;
   }
-  *::-webkit-scrollbar { width: 6px; height: 6px; }
+  *::-webkit-scrollbar { width: 5px; height: 5px; }
   *::-webkit-scrollbar-track { background: transparent; }
-  *::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-  *::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  *::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 2px; }
+  *::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 }
 
 @layer components {
-  /* Standard Panels */
-  .glass {
-    @apply bg-white border border-gray-200 rounded-lg shadow-sm transition-shadow hover:shadow;
-  }
-  
-  /* Buttons */
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors border outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-1 focus:border-transparent;
-  }
-  .btn-neon {
-    @apply bg-brand-600 text-white border-transparent shadow-sm hover:bg-brand-700 disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-  .btn-glass {
-    @apply bg-white text-gray-700 border-gray-300 shadow-sm hover:bg-gray-50 hover:text-gray-900;
-  }
-  .btn-ghost {
-    @apply bg-transparent text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-100;
+  /* Crisp Studio Button */
+  .btn-workbench {
+    @apply inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-all duration-150 bg-[#0F172A] text-white hover:bg-[#1E293B] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
-  /* Inputs */
-  .input {
-    @apply w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 text-sm outline-none transition-colors focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-gray-400 shadow-sm;
+  .btn-workbench-blue {
+    @apply inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-all duration-150 bg-[#2563EB] text-white hover:bg-[#1D4ED8] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
-  /* Spinner */
-  .spinner {
-    @apply w-4 h-4 border-2 border-gray-200 border-t-brand-600 rounded-full animate-spin shrink-0;
+  .btn-workbench-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium cursor-pointer transition-all duration-150 bg-white text-[#0F172A] border border-slate-200 hover:bg-slate-50 hover:border-slate-300 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  /* Form Inputs */
+  .workbench-input {
+    @apply w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-[#0F172A] text-xs font-normal outline-none transition-all duration-150 focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] placeholder-slate-400 font-mono;
+  }
+
+  /* Data Table Cell */
+  .table-cell-mono {
+    @apply font-mono text-xs text-slate-700 px-3 py-2 border-b border-slate-200 whitespace-nowrap;
   }
 }
 
-/* Base resets for standard typography */
+/* Base typography */
 h1, h2, h3, h4, h5, h6 {
-  @apply text-gray-900 tracking-tight;
-}
-p {
-  @apply text-gray-600;
-}
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(12px); }
-  to { opacity: 1; transform: translateX(0); }
+  @apply text-[#0F172A] font-bold tracking-tight;
 }

@@ -1,142 +1,157 @@
-import { ArrowRight, Brain, Zap, BarChart3, MessageSquare, ChevronRight, Github } from 'lucide-react'
+import { ArrowRight, Zap, BarChart3, MessageSquare, FileText, Database, ShieldCheck, CheckCircle2, Upload } from 'lucide-react'
+import Logo from '../components/Logo'
 
-const FEATURES = [
-  { icon: Brain, label: 'Agentic AI', desc: 'ReAct loop with tool use — plans, codes, corrects itself', color: 'text-brand-600 bg-brand-50 border-brand-200' },
-  { icon: BarChart3, label: 'Auto Analysis', desc: 'Pandas + Matplotlib charts generated autonomously', color: 'text-indigo-600 bg-indigo-50 border-indigo-200' },
-  { icon: MessageSquare, label: 'Follow-up Chat', desc: 'Ask follow-up questions after the report', color: 'text-purple-600 bg-purple-50 border-purple-200' },
-  { icon: Zap, label: 'Live Streaming', desc: 'Watch every reasoning step in real time via SSE', color: 'text-amber-600 bg-amber-50 border-amber-200' },
+const WORKFLOW_STEPS = [
+  {
+    num: '01',
+    title: 'Upload Dataset',
+    desc: 'Support for CSV, Excel (.xlsx), and JSON files with instant schema validation and null profiling.'
+  },
+  {
+    num: '02',
+    title: 'Autonomous Analysis',
+    desc: 'AI formulates data hypotheses, executes analysis code, and generates correlation matrices.'
+  },
+  {
+    num: '03',
+    title: 'Executive Insights',
+    desc: 'Receive publication-ready charts, key metric drivers, strategic recommendations, and exportable reports.'
+  }
 ]
 
-const TECH = ['Spring Boot', 'FastAPI', 'React', 'Gemini AI', 'Pandas', 'SSE', 'Java 17', 'Python 3']
+const FEATURES = [
+  {
+    icon: Database,
+    label: 'Instant Schema Profiling',
+    desc: 'Automatically parses column data types, missing value distributions, and numerical statistics.'
+  },
+  {
+    icon: BarChart3,
+    label: 'Automated Chart Generation',
+    desc: 'Renders high-resolution bar charts, scatter plots, and distribution graphs tailored to your query.'
+  },
+  {
+    icon: FileText,
+    label: 'Executive Summaries',
+    desc: 'Translates complex statistical findings into clear bulleted findings, risks, and next steps.'
+  },
+  {
+    icon: MessageSquare,
+    label: 'Interactive Dataset Chat',
+    desc: 'Ask follow-up questions post-analysis for deeper metric exploration and scenario modeling.'
+  }
+]
 
 export default function Landing({ onStart }) {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-brand-100 selection:text-brand-900">
+    <div className="min-h-screen bg-white text-[#0F172A] font-sans relative overflow-hidden pb-16">
       
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <div className="flex items-center gap-2.5">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-600 text-white shadow-sm">
-            <Brain size={18} />
+      {/* Navigation Bar */}
+      <header className="border-b border-slate-200 bg-white px-6 py-3.5 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <Logo />
+          
+          <div className="flex items-center gap-3">
+            <a 
+              href="https://github.com/raiyashu2004/data-analyst-agent" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="btn-studio-secondary text-xs hidden sm:flex"
+            >
+              GitHub
+            </a>
+            <button onClick={onStart} className="btn-studio-blue text-xs">
+              Launch Workspace <ArrowRight size={14} />
+            </button>
           </div>
-          <span className="font-bold text-lg tracking-tight">
-            STRATEGOS <span className="text-brand-600 text-xs font-mono font-medium ml-1 bg-brand-50 px-1.5 py-0.5 rounded">AGENT</span>
-          </span>
         </div>
-        <div className="flex gap-3">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="btn btn-ghost text-sm px-3 py-1.5 hidden sm:flex">
-            <Github size={16} /> GitHub
-          </a>
-          <button onClick={onStart} className="btn btn-neon text-sm px-4 py-1.5">
-            Launch App <ArrowRight size={16} />
-          </button>
-        </div>
-      </nav>
+      </header>
 
-      {/* Hero */}
-      <section className="text-center px-6 pt-32 pb-24 max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-sm font-medium">
-          <SparklesIcon className="w-4 h-4" />
-          <span>v2.0 Released. Smarter and faster.</span>
+      {/* Hero Section */}
+      <section className="text-center px-6 pt-16 pb-12 max-w-4xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold">
+          <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+          AI-Powered Data Analyst Workspace
         </div>
         
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.1] mb-6">
-          Autonomous Data Analysis <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">
-            at your fingertips
-          </span>
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.15] mb-5">
+          Instant Data Intelligence <br className="hidden sm:block" />
+          <span className="text-blue-600">Powered by Autonomous AI.</span>
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Upload any dataset, ask a question, and watch an AI agent autonomously plan, write code, run analyses, generate charts, and deliver a full report.
+        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+          Upload any CSV or Excel file. STRATEGOS automatically profiles your dataset, answers complex questions, generates charts, and writes executive reports in seconds.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button onClick={onStart} className="btn btn-neon text-base px-8 py-3 shadow-md hover:shadow-lg">
-            <Zap size={18} /> Try the Agent
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <button onClick={onStart} className="btn-studio-blue text-sm px-6 py-2.5">
+            <Zap size={15} /> Launch Workspace Now
           </button>
-          <a href="#features" className="btn btn-glass text-base px-8 py-3">
-            See Features <ChevronRight size={18} />
-          </a>
-        </div>
-
-        {/* Tech stack pills */}
-        <div className="flex flex-wrap justify-center gap-2 mt-16 max-w-3xl mx-auto">
-          {TECH.map(t => (
-            <span key={t} className="px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-medium text-gray-600 shadow-sm">
-              {t}
-            </span>
-          ))}
+          <button onClick={onStart} className="btn-studio-secondary text-sm px-6 py-2.5">
+            <Upload size={15} /> Try Sample Dataset
+          </button>
         </div>
       </section>
 
-      {/* Architecture */}
-      <section className="px-6 pb-24 max-w-5xl mx-auto">
-        <div className="bg-white rounded-2xl p-8 sm:p-10 border border-gray-200 shadow-sm">
-          <div className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-8 text-center sm:text-left">
-            System Architecture
+      {/* 3-Step Workflow Section */}
+      <section className="px-6 py-10 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">How It Works</h2>
+            <p className="text-xl font-bold text-[#0F172A] mt-1">Three Simple Steps to Data Clarity</p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0 overflow-x-auto pb-4 sm:pb-0">
-            {[
-              { label: 'React', sub: 'Frontend', color: 'border-blue-200 bg-blue-50 text-blue-700' },
-              { arrow: true },
-              { label: 'Spring Boot', sub: 'Gateway :8080', color: 'border-green-200 bg-green-50 text-green-700' },
-              { arrow: true },
-              { label: 'FastAPI', sub: 'ML Service :8001', color: 'border-teal-200 bg-teal-50 text-teal-700' },
-              { arrow: true },
-              { label: 'Gemini AI', sub: 'Tool Use', color: 'border-brand-200 bg-brand-50 text-brand-700' },
-            ].map((item, i) => item.arrow ? (
-              <div key={i} className="text-gray-300 px-4 text-xl sm:rotate-0 rotate-90 shrink-0">→</div>
-            ) : (
-              <div key={i} className={`px-5 py-4 rounded-xl border shrink-0 text-center w-40 ${item.color}`}>
-                <div className="text-sm font-bold">{item.label}</div>
-                <div className="text-xs font-mono mt-1 opacity-80">{item.sub}</div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {WORKFLOW_STEPS.map((step) => (
+              <div key={step.num} className="bg-white border border-slate-200 rounded-md p-5 relative">
+                <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded">
+                  STEP {step.num}
+                </span>
+                <h3 className="text-sm font-bold text-[#0F172A] mt-3 mb-1.5">{step.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="px-6 pb-32 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-            Beyond a Dashboard
+      {/* Feature Grid */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+            Built for Accurate Analytics
           </h2>
-          <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-            STRATEGOS doesn't just display data; it thinks through problems and acts like a genuine analyst.
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Everything you need to turn spreadsheets into decisions.
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 gap-4">
           {FEATURES.map((f) => {
             const Icon = f.icon
             return (
-              <div key={f.label} className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center border mb-6 ${f.color}`}>
-                  <Icon size={24} />
+              <div key={f.label} className="bg-white border border-slate-200 rounded-md p-5 hover:border-slate-300 transition-all">
+                <div className="w-8 h-8 rounded bg-slate-100 border border-slate-200 flex items-center justify-center text-[#0F172A] mb-3">
+                  <Icon size={18} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{f.label}</h3>
-                <p className="text-gray-600 leading-relaxed">{f.desc}</p>
+                <h3 className="text-sm font-bold text-[#0F172A] mb-1">{f.label}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{f.desc}</p>
               </div>
             )
           })}
         </div>
-        
-        <div className="text-center mt-20">
-          <button onClick={onStart} className="btn btn-neon text-base px-10 py-4 shadow-md">
-            <Brain size={20} /> Launch Agent
+
+        <div className="text-center mt-10">
+          <button onClick={onStart} className="btn-studio-blue text-xs px-6 py-2.5">
+            Open Analyst Workspace <ArrowRight size={14} />
           </button>
         </div>
       </section>
-    </div>
-  )
-}
 
-function SparklesIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-    </svg>
+      {/* Clean Footer */}
+      <footer className="text-center text-xs text-slate-400 pt-8 border-t border-slate-200 max-w-5xl mx-auto font-mono">
+        STRATEGOS &copy; 2026 Achintya Rai. Autonomous Data Intelligence Engine.
+      </footer>
+    </div>
   )
 }
